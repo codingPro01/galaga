@@ -1,6 +1,6 @@
 """
 Made by injoon5, codingcup04 (codingPro01)
-Do not copy anything below
+Do not copy & paste everything without this message
 Do not edit this
 2020.
 """
