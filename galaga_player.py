@@ -4,6 +4,14 @@ Do not copy & paste everything without this message
 Do not edit this
 2020.
 """
+"""
+_kr
+Enermy에 오타가 있습니다. 수정하실 때 유의해 주시기 바랍니다.
+"""
+"""
+_en
+"Enermy" is a typo. Please be aware.
+"""
 import pygame, sys, random, time
 from pygame.locals import *
 pygame.init()
