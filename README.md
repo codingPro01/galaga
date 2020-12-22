@@ -1,13 +1,15 @@
-# Galaga v 0.0.1 beta
-필수 사항:
-  압축이 풀린 [.zip] 파일, 
-  Pygame, 
-  Python (Added to path), 
-  비주얼 스튜다오 코드 (추천).  
-  
-  
-Pygame 설치 방법:
-  명령 프롬프트 창 또는 PowerShell 또는 터미널 -> pip install pygame [Enter]
+  ## Galaga
+
+기본 조작 키: 
+      (Left), (Right), (Up), (Down): 조작
+      (Space): 미사일 발사
+
+단축 키:
+    (L_Ctrl): 게임 다시 시작 또는 게임 계속 진행 (디버그)
+    (L_Alt): 게임 정지 (디버그)
+    (Esc): 게임 종료
+
+필수 사항: Python (Added to path), Pygame installed (명령 프롬프트에서 pip install pygame) --(Python 3.9, Windows 10 기준)--
 
 
-!!Star와 알림 설정!!
+다운로드 방법: [.zip] 파일 들어가서 다운로드 버튼 클릭, 실행하기 위해 압축을 풀어주세요!
