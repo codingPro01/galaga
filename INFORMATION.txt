@@ -10,4 +10,7 @@ Galaga
     (L_Alt): 게임 정지 (디버그)
     (Esc): 게임 종료
 
-다운로드 방법: [.zip] 파일 들어가서 다운로드 버튼 클릭
+필수 사항: Python (Added to path), Pygame installed (명령 프롬프트에서 pip install pygame) --(Python 3.9, Windows 10 기준)--
+
+
+다운로드 방법: [.zip] 파일 들어가서 다운로드 버튼 클릭, 실행하기 위해 압축을 풀어주세요!
