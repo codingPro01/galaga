@@ -95,8 +95,8 @@ class Missile:
 
 class Button:
     def __init__(self):
-            self.x = 250
-            self.y = 510
+            self.x = SCREEN_WIDTH - 160
+            self.y = 10
     def click(self):
             pos = pygame.mouse.get_pos()
             mx = pos[0]
