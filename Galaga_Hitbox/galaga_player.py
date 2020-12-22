@@ -243,7 +243,7 @@ while True:
         for enermy in enermys:
             if forces.boom(enermy):
                   screen.blit(game_over, (170, 200))
-                  screen.blit(restart_btn, (250, 510))
+                  screen.blit(restart_btn, (SCREEN_WIDTH - 160, 10))
                   print('Score: ', str(int(points)))
                   print("Missiles fired: " + str(fired))
                   print("Gamepoint: " + str(points - fired / 2))
