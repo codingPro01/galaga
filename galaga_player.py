@@ -12,7 +12,7 @@ Enermy에 오타가 있습니다. 수정하실 때 유의해 주시기 바랍니
 _en
 "Enermy" is a typo. Please be aware.
 """
-import pygame, sys, random, time
+import pygame, sys, random, time, playsound
 from pygame.locals import *
 pygame.init()
 SCREEN_WIDTH = 640
@@ -121,13 +121,14 @@ enermy_image.set_colorkey((0,0,0))
 
 forces_image = pygame.image.load("forces.png").convert()
 forces_image.set_colorkey((0,0,0))
-
+surface = pygame.image.load("forces.png").convert()
 game_over = pygame.image.load("game-over.png").convert()
 
 restart_btn = pygame.image.load("restart.png").convert()
-
+pygame.display.set_icon(surface)
 last_enermy_spawn_time = 0
 pygame.display.set_caption("Galaga")
+
 clock = pygame.time.Clock()
 
 while True:
@@ -156,25 +157,30 @@ while True:
         screen.fill(BLACK)
         pygame.display.update()
         loaded = ""
-        ldnxt = True
+        ldnxt = True    
     while ldnxt == True:
         clock.tick(60)
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                  sys.exit()
-            if event.type == KEYDOWN and event.key == K_ESCAPE:
-                  sys.exit()
-            if event.type == KEYDOWN and event.key == K_SPACE:
-                  forces.fire()
-            if event.type == KEYDOWN and event.key == K_LCTRL:
-                  gaming = True
-            if event.type == KEYDOWN and event.key == K_LALT:
-                  gaming = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                  if btn.click():           
-                        print('Restart')
+                if event.type == pygame.QUIT:
+                        sys.exit()
+                if event.type == KEYDOWN and event.key == K_ESCAPE:
+                        sys.exit()
+                if event.type == KEYDOWN and event.key == K_SPACE:
+                        forces.fire()
+                if event.type == KEYDOWN and event.key == K_LCTRL:
                         gaming = True
-                        fired = 0
+                if event.type == KEYDOWN and event.key == K_LALT:
+                        gaming = False
+
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                        if btn.click():           
+                                print('Restart')
+                                gaming = True
+                                fired = 0
+                if event.type == KEYDOWN and event.key == K_F1:
+                        print(Forces.__init__)
+                        print(Enermy.__init__)
+                        print(Missile.__init__)
 
         pressed_keys = pygame.key.get_pressed()
 
@@ -218,6 +224,11 @@ while True:
                             del missiles[j]
                             i -= 1
                             points += 1
+                            gamepoint = points - fired / 2
+                            if gamepoint >= 16:
+                                    print("You won the game! Congratulations! ")
+                                    wongame = myfont.render("You won the game! Congratulations! ")
+                                    screen.blit(wongame, (10, 100))
                             break
                     j += 1
                 i+= 1
@@ -225,8 +236,10 @@ while True:
 
         score_img = myfont.render("Score: " + str(int(points)), True, (255,255,255))
         ms_img = myfont.render("Missiles fired: " + str(fired), True, (255, 255, 255))
+        gp_img = myfont.render("Gamepoint: " + str(points - fired / 2), True, (255, 255, 255))
         screen.blit(ms_img, (10, 40))
         screen.blit(score_img , (10, 10))
+        screen.blit(gp_img, (10, 70))
 
         for enermy in enermys:
             if forces.boom(enermy):
@@ -234,6 +247,7 @@ while True:
                   screen.blit(restart_btn, (250, 510))
                   print('Score: ', str(int(points)))
                   print("Missiles fired: " + str(fired))
+                  print("Gamepoint: " + str(points - fired / 2))
                   pygame.display.update()
                   gaming  = False
                   break
